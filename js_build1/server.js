@@ -1,1 +1,0 @@
-"use strict";var express=require("express"),cors=require("cors"),app=express();app.use(cors()),app.get("/",function(e,r){return r.send("Hello")}),app.listen(8e3,function(){return console.log("Server listen on port 8000...")});

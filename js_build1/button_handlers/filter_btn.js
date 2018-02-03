@@ -1,1 +1,0 @@
-"use strict";$(document).ready(function(){$(document.body).on("click",".stateFilter input",function(t){var e=t.target.dataset.statefilter,r=$(".inserter"),n=$('[data-stateH="'+e+'"]');$("."+e).insertAfter(r),n.insertAfter(r)})});
