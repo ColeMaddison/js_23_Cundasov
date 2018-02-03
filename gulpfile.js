@@ -18,7 +18,7 @@ gulp.task('transpile_app', () =>{
             presets: ['env']
         }))
         .pipe(uglify())
-        // .pipe(concat('one.js'))
+        .pipe(concat('one.js'))
         .pipe(gulp.dest(app_dest))
 });
 
@@ -33,14 +33,14 @@ gulp.task('watch', () => {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('livereload', () => {
-    gulp.src('js/*.js')
-        .pipe(g_babel({
-            presets: ['env']
-        }))
-        .pipe(gulp.dest('js_build3'))
-        .pipe(livereload());
-});
+// gulp.task('livereload', () => {
+//     gulp.src('js/*.js')
+//         .pipe(g_babel({
+//             presets: ['env']
+//         }))
+//         .pipe(gulp.dest('js_build3'))
+//         .pipe(livereload());
+// });
 
 
 
