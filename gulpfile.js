@@ -20,6 +20,7 @@ gulp.task('transpile_app', () =>{
         .pipe(uglify())
         .pipe(concat('one.js'))
         .pipe(gulp.dest(app_dest))
+        .pipe(connect.reload());
 });
 
 gulp.task('lint', () => {
@@ -29,20 +30,16 @@ gulp.task('lint', () => {
 });
 
 gulp.task('watch', () => {
-    return watch('js/**/*.js', {ignoreInitial: false})
-        .pipe(gulp.dest('build'));
+    gulp.watch('js/*.js', ['transpile_app']);
 });
 
-// gulp.task('livereload', () => {
-//     gulp.src('js/*.js')
-//         .pipe(g_babel({
-//             presets: ['env']
-//         }))
-//         .pipe(gulp.dest('js_build3'))
-//         .pipe(livereload());
-// });
+gulp.task('connect', () => {
+    connect.server({
+        livereload: true
+    });
+});
 
-
+gulp.task('default', ['watch', 'connect']);
 
 
 
