@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$(document.body).on("click",".sendServer input:nth-child(1)",function(){$.ajax({method:"GET",url:"http://localhost:8000/",dataType:"text",data:{some:"data"}}).done(function(o){console.log("AJAX - SUCCESS"),console.log(o)}).fail(function(o){console.log("AJAX - FAILED"),console.log(o)})})});

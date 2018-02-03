@@ -1,0 +1,373 @@
+body{
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.mainApp{
+	background: #fafafa;
+	width: 60%;
+	min-height: 600px;
+	margin: 40px auto;
+	-moz-box-shadow:    inset 0 0 10px #3a3a3a;
+	-webkit-box-shadow: inset 0 0 10px #3a3a3a;
+	box-shadow: inset 0 0 5px #3a3a3a;
+	border-radius: 10px;
+}
+
+.form .inputForm{
+	width: 50%;
+	height: 120px;
+	float: left;
+}
+
+input[type=text]{
+	width: 350px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-left: 5px;
+	height: 35px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+}
+
+.inputForm textarea{
+	resize: none;
+	width: 350px;
+	height: 48px;
+	padding-left: 5px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 10px;
+	border: 1px solid #ccc;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.additional{
+	float: left;
+	width: 399px;
+	height: 120px;
+	position: relative;
+	display: block;
+	user-select: none;
+}
+
+.additional p{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.priority{
+	text-align: center;
+	margin: 10px;
+	cursor: pointer;
+}
+
+/* hide default radio button */
+.additional input[type=radio]{
+	position: relative;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* custom radio button */
+.customRadio{
+	position: absolute;
+	top: 51px;
+	height: 19px;
+	width: 19px;
+    border-radius: 50%;
+}
+
+/* specific bgcolor for every priority */
+.radioMinor{
+	background-color: #AAAAAA;
+	margin-left: -67px;
+}
+
+.radioImportant{
+	background-color: #2ECC40;
+	margin-left: -95px;
+}
+
+.radioBlocker{
+	background-color: #FF851B;
+	margin-left: -81px;
+}
+
+.radioAsap{
+	background-color: #FF4136;
+	margin-left: -67px;
+}
+
+/* change color on hover */
+.priority:hover .radioMinor{
+	background-color: grey;
+}
+
+.priority:hover .radioImportant{
+	background-color: green;
+}
+
+.priority:hover .radioBlocker{
+	background-color: orange;
+}
+
+.priority:hover .radioAsap{
+	background-color: red;
+}
+
+/* add point for checked */
+.customRadio::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.priority input:checked ~ .customRadio::after{
+	display: block;
+}
+
+.priority .customRadio::after {
+	top: 6px;
+	left: 6px;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* button for adding the todo */
+.addButton{
+	display: block;
+	margin: 10px auto;
+	border: 2px solid #DB0021;
+	color: #DB0021;
+	padding: 8px 28px;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.addButton:hover{
+	background-color: #DB0021;
+    color: white;
+}
+
+/* filter buttons */
+.stateFilter{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.stateFilter input{
+	border: 2px solid black;
+	background-color: white;
+	color: black;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 8px 28px;
+	border-radius: 5px;
+	margin-left: 7px;
+}
+
+.todoBtn:hover{
+	background-color: black;
+    color: white;
+}
+
+.progressBtn:hover{
+	background-color: black;
+    color: white;
+}
+
+.doneBtn:hover{
+	background-color: black;
+    color: white;
+}
+
+.removedBtn:hover{
+	background-color: black;
+    color: white;
+}
+
+/* contents */
+.contents{
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+.contents ul{
+	user-select: none;
+	cursor:pointer;
+	list-style-type: none;
+}
+
+.contents ul li{
+	min-height: 70px;
+}
+
+/* .contents ul li:nth-child(odd){
+	background: rgb(236, 235, 235);
+}
+
+.contents ul li:nth-child(even){
+	background: #f9f9f9;
+} */
+
+.contents ul li:hover{
+	background: #a8a7a7;
+}
+
+.contents li{
+	height: 30px;
+	padding-top: 10px;
+	position: relative;
+}
+
+/* buttons for changing the state */
+.stateControl button{
+	border: none;
+	margin-left: -6px;
+	margin-top: -2px;
+	margin-right: 6px; 
+	cursor: pointer;
+}
+
+.stateControl .changeDoneBtn svg{
+	fill: #858585;
+}
+
+.stateControl .changeDoneBtn:hover svg{
+	fill: #474747;
+}
+
+.stateControl .changeProgressBtn svg{
+	fill: #9DFF47;
+}
+
+.stateControl .changeProgressBtn:hover svg{
+	fill: #03A300;
+}
+
+.stateControl .changeTodoBtn svg{
+	fill: #FF8742;
+}
+
+.stateControl .changeTodoBtn:hover svg{
+	fill: #c24802;
+}
+
+.stateControl .changeRemovedBtn svg{
+	fill: rgb(216, 189, 189);
+}
+
+.stateControl .changeRemovedBtn:hover svg{
+	fill: #af02027c;
+}
+
+.contents div{
+	position: absolute;
+	right: 20px;
+	top: 11px;
+}
+
+.stateControl{
+	margin-right: 112px;
+}	
+
+.priorityControl input{
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.priorityControl input:nth-child(1){
+	background: #AAAAAA;
+}
+
+.priorityControl input:nth-child(2){
+	background: #2ECC40;
+}
+
+.priorityControl input:nth-child(3){
+	background: #FF851B;
+}
+
+.priorityControl input:nth-child(4){
+	background: #FF4136;
+}
+
+.todoInfo{
+	position: absolute;
+	left: 25px;
+	font-size: 15px;
+}
+
+.todoInfo span{
+	display: block;
+}
+
+.todoName{
+	font-size: 16px;
+}
+
+.todoComment{
+	word-wrap: break-word;
+}
+
+/* styles for the content differentiation  */
+.contentMinor{
+	background: #2ECC40;
+}
+
+/* classes for priority */
+.priorityM{
+	background: #AAAAAA;
+}
+
+.priorityI{
+	background: #2ECC40;
+}
+
+.priorityB{
+	background: #FF851B;
+}
+
+.priorityA{
+	background: #FF4136;
+}
+
+.sendServer input{
+	position: absolute;
+	cursor: pointer;
+	border: none;
+	top: 30px;
+	height: 30px;
+	width: 60px;
+	color: white;
+}
+
+.sendServer input:nth-child(1){
+	background: #0213afb4;
+	margin-right: 5px;
+	right: 65px;
+}
+
+.sendServer input:nth-child(2){
+	background: #af0202b4;
+	right: 0px;
+}
+
+.sendServer input:nth-child(1):hover{
+	background: #0213af;
+}
+
+.sendServer input:nth-child(2):hover{
+	background: #af0202;
+}

@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$(".addButton").click(function(){var t=$(".inputForm input").val(),o=$(".inputForm textarea").val(),e=parseInt($("input[name='priority']:checked").attr("data-priority"));if(t&&o){var n={name:t,comment:o,priority:e,content:1};todos.push(n),localStorage.setItem("todo",JSON.stringify(todos)),clearIputFields(),populateContents(t,o,e,1)}})});
